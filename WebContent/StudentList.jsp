@@ -16,7 +16,7 @@ ArrayList<Student> list = dao.getAllStudents();
 <%
 for (Student s : list) {
 %>
-<tr><td><%=s.student_id %></td><td><%=s.student_name %></td><td><%=s.student_tel %></td></tr>
+<tr><td><%=s.student_id %></td><td><a href="StudentDetail.jsp?id=<%=s.student_id %>"><%=s.student_name %></a></td><td><%=s.student_tel %></td></tr>
 <%
 }
 %>

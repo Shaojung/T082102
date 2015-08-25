@@ -9,8 +9,29 @@
 <body>
 <p><a href="StudentAdd.jsp">Add a student</a></p>
 <%
+String strPage = request.getParameter("p");
+int p;
+if (strPage == null)
+{
+	p = 1;
+}
+else
+{
+	try
+	{
+		p = Integer.valueOf(strPage);	
+	}
+	catch (Exception e)
+	{
+		p = 1;
+	}
+	
+}
+
+final int PAGE_SIZE = 3;
+int start_loc = (p-1)* PAGE_SIZE + 1;
 StudentDAO dao = new StudentDAODBImpl();
-ArrayList<Student> list = dao.getAllStudents();
+ArrayList<Student> list = dao.getRangeStudents(start_loc, PAGE_SIZE);
 %>
 <table border="1">
 <tr><th>ID</th><th>Name</th><th>Tel</th></tr>

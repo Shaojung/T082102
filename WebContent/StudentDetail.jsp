@@ -9,10 +9,27 @@
 <body>
 <%
 String s = request.getParameter("id");
-int student_id = Integer.valueOf(s);
-StudentDAO dao = new StudentDAODBImpl();
-Student stu = dao.findById(student_id);
-out.println("Name:" + stu.student_name);
+if (s != null)
+{
+	try
+	{
+		int student_id = Integer.valueOf(s);
+		StudentDAO dao = new StudentDAODBImpl();
+		Student stu = dao.findById(student_id);
+		
+		out.println("Name:" + stu.student_name);
+	}
+	catch(Exception e)
+	{
+		out.println("No Data!");
+	}
+		
+}
+else
+{
+	out.println("No Data!");
+}
+
 %>
 </body>
 </html>

@@ -32,6 +32,8 @@ final int PAGE_SIZE = 3;
 int start_loc = (p-1)* PAGE_SIZE + 1;
 StudentDAO dao = new StudentDAODBImpl();
 ArrayList<Student> list = dao.getRangeStudents(start_loc, PAGE_SIZE);
+int TotalRows = dao.getSize();
+int TotalPages = (int) Math.ceil((double) TotalRows / (double) PAGE_SIZE);
 %>
 <table border="1">
 <tr><th>ID</th><th>Name</th><th>Tel</th></tr>
@@ -43,5 +45,13 @@ for (Student s : list) {
 }
 %>
 </table>
+<p>
+<% if (p > 1) { %>
+<a href="StudentList.jsp?p=<%= (p-1) %>">上一頁</a>
+<% } %>
+<% if (p < TotalPages) { %>
+<a href="StudentList.jsp?p=<%= (p+1) %>">下一頁</a>
+<% } %>
+</p>
 </body>
 </html>

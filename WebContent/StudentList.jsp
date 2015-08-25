@@ -70,5 +70,18 @@ for (Student s : list) {
 </form>
 </p>
 
+<p>
+<table border="1">
+<tr>
+<% 
+	for (int i=1;i<=TotalPages;i++) {
+%>
+	<td> <a href="StudentList.jsp?p=<%=i %>"><%=i %></a> </td>
+<%		
+	}
+%>
+</tr>
+</table>
+</p>
 </body>
 </html>

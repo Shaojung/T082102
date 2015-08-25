@@ -74,7 +74,13 @@ for (Student s : list) {
 <table border="1">
 <tr>
 <% 
-	for (int i=1;i<=TotalPages;i++) {
+	final int PAGE_RANGE = 3;
+	int loc = (p-1) / PAGE_RANGE;
+	int start_num = loc*PAGE_RANGE+1;
+	int end_num = loc*PAGE_RANGE+PAGE_RANGE;
+	int uplimit = (TotalPages > end_num) ? end_num : TotalPages;
+	int i;
+	for (i=start_num;i<=uplimit;i++) {
 %>
 	<% if (p != i) { %>
 	<td width="30px"> <a href="StudentList.jsp?p=<%=i %>"><%=i %></a> </td>
@@ -83,7 +89,15 @@ for (Student s : list) {
 	<% } %>
 <%		
 	}
+	if (TotalPages > end_num)
+	{
+	%>
+		<td><a href="StudentList.jsp?p=<%=i %>">Next <%=PAGE_RANGE %> Pages</a></td>
+	<%
+	}
+	
 %>
+
 </tr>
 </table>
 </p>

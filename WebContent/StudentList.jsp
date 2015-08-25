@@ -76,7 +76,11 @@ for (Student s : list) {
 <% 
 	for (int i=1;i<=TotalPages;i++) {
 %>
-	<td> <a href="StudentList.jsp?p=<%=i %>"><%=i %></a> </td>
+	<% if (p != i) { %>
+	<td width="30px"> <a href="StudentList.jsp?p=<%=i %>"><%=i %></a> </td>
+	<% } else { %>
+	<td width="30px"> <%=i %> </td>
+	<% } %>
 <%		
 	}
 %>

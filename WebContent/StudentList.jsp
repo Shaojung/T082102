@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<p><a href="StudentAdd.jsp">Add a student</a></p>
 <%
 StudentDAO dao = new StudentDAODBImpl();
 ArrayList<Student> list = dao.getAllStudents();

@@ -59,6 +59,16 @@ for (Student s : list) {
 	<input type="submit" value="GO" />
 </form>
 </p>
+<p>
+<form id="page2" name="page2" action="StudentList.jsp" method="get">
+	<select name="p" onchange="page2.submit()">
+		<% for(int i=1;i<=TotalPages;i++) { %>
+		<option value="<%=i %>" <% if (p==i) { %>selected="selected"<% } %>>第 <%=i %> 頁</option>
+		<% } %>		
+		
+	</select>
+</form>
+</p>
 
 </body>
 </html>

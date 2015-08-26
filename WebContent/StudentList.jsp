@@ -5,6 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <p><a href="StudentAdd.jsp">Add a student</a></p>
@@ -35,7 +43,7 @@ ArrayList<Student> list = dao.getRangeStudents(start_loc, PAGE_SIZE);
 int TotalRows = dao.getSize();
 int TotalPages = (int) Math.ceil((double) TotalRows / (double) PAGE_SIZE);
 %>
-<table border="1">
+<table border="1" class="table">
 <tr><th>ID</th><th>Name</th><th>Tel</th><th>Edit</th><th>Del</th></tr>
 <%
 for (Student s : list) {
@@ -53,10 +61,10 @@ for (Student s : list) {
 </table>
 <p>
 <% if (p > 1) { %>
-<a href="StudentList.jsp?p=<%= (p-1) %>">上一頁</a>
+<a href="StudentList.jsp?p=<%= (p-1) %>" class="btn btn-default">上一頁</a>
 <% } %>
 <% if (p < TotalPages) { %>
-<a href="StudentList.jsp?p=<%= (p+1) %>">下一頁</a>
+<a href="StudentList.jsp?p=<%= (p+1) %>" class="btn btn-default">下一頁</a>
 <% } %>
 </p>
 <p>

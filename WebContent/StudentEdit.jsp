@@ -30,9 +30,10 @@ else
 
 %>
 <body>
-<form name="student" action="" method="post">
-<p>Student Name:<input type="text" name="student_name" value="<% out.println(stu.student_name); %>" /></p>
-<p>Student Tel:<input type="text" name="student_tel" value="<% out.println(stu.student_tel); %>" /></p>
+<form name="student" action="StudentEditCode.jsp" method="post">
+<input type="hidden" name="student_id" value="<% out.print(stu.student_id); %>" />
+<p>Student Name:<input type="text" name="student_name" value="<% out.print(stu.student_name); %>" /></p>
+<p>Student Tel:<input type="text" name="student_tel" value="<% out.print(stu.student_tel); %>" /></p>
 <p><input type="submit" value="Update!" />
 </form>
 </body>

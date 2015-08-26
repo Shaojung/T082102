@@ -30,6 +30,7 @@ else
 
 %>
 <body>
+<p>This is a Edit Page</p>
 <form name="student" action="StudentEditCode.jsp" method="post">
 <input type="hidden" name="student_id" value="<% out.print(stu.student_id); %>" />
 <p>Student Name:<input type="text" name="student_name" value="<% out.print(stu.student_name); %>" /></p>

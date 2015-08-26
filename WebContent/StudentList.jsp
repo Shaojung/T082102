@@ -45,7 +45,7 @@ for (Student s : list) {
 <td><a href="StudentDetail.jsp?id=<%=s.student_id %>"><%=s.student_name %></a></td>
 <td><%=s.student_tel %></td>
 <td><a href="StudentEdit.jsp?id=<%=s.student_id %>">Edit</a></td>
-<td><a href="StudentDelCode.jsp?id=<%=s.student_id %>">Del</a></td>
+<td><a href="StudentDelCode.jsp?id=<%=s.student_id %>" onclick="return confirm('確認刪除?');">Del</a></td>
 </tr>
 <%
 }

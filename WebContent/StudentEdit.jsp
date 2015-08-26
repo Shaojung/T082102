@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>這是我的練習</title>
 </head>
 <%
 String s = request.getParameter("id");

@@ -36,11 +36,16 @@ int TotalRows = dao.getSize();
 int TotalPages = (int) Math.ceil((double) TotalRows / (double) PAGE_SIZE);
 %>
 <table border="1">
-<tr><th>ID</th><th>Name</th><th>Tel</th></tr>
+<tr><th>ID</th><th>Name</th><th>Tel</th><th>Edit</th></tr>
 <%
 for (Student s : list) {
 %>
-<tr><td><%=s.student_id %></td><td><a href="StudentDetail.jsp?id=<%=s.student_id %>"><%=s.student_name %></a></td><td><%=s.student_tel %></td></tr>
+<tr>
+<td><%=s.student_id %></td>
+<td><a href="StudentDetail.jsp?id=<%=s.student_id %>"><%=s.student_name %></a></td>
+<td><%=s.student_tel %></td>
+<td><a href="StudentEdit.jsp?id=<%=s.student_id %>">Edit</a></td>
+</tr>
 <%
 }
 %>

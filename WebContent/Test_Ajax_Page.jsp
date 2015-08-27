@@ -14,7 +14,8 @@
 		// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
 		// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
 		request.send(null); // 發動 request 去取資料
-		alert(request.responseText);
+		// alert(request.responseText);
+		document.getElementById("msg").innerHTML = request.responseText;
 	}
 </script>
 </head>

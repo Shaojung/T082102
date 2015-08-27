@@ -5,28 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	#wrapper {
-		width: 960px;
-		height: 700px;
-		background-color: #FF9999;
-		margin-left:auto; 
-		margin-right:auto; 
-	}	
-	#header {
-		width: 960px;
-		height: 100px;
-		background-color: #FF9900;
-		margin-left:auto; 
-		margin-right:auto; 
-	}
-	#content {
-		width: 960px;
-		height: 600px;
-		background-color: #00FF99;
-			
-	}
-</style>
+<link rel="stylesheet" href="css/mysite.css">
 </head>
 <body>
 <div id="wrapper">

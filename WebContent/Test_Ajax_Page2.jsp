@@ -25,7 +25,10 @@
 	
 	function updateData()
 	{
-		alert(request.readyState);	
+		if (request.readyState == 4)
+		{
+			document.getElementById("msg").innerHTML = request.responseText;	
+		}
 	}
 </script>
 </head>

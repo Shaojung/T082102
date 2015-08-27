@@ -26,6 +26,13 @@ function check_data()
       flag = false;
    }
 
+   var dup = document.getElementById('dup');
+   if(dup.value=='1')
+   {
+      message = message + '姓名不得重複\n';
+      flag = false;
+   }
+   
    if(!flag) 
    {
       alert(message);
@@ -38,6 +45,7 @@ function check_data()
 
 <form name="student" action="StudentAddCode.jsp" method="post" onSubmit="return check_data();">
 <p>Student Name:<input id="t1" type="text" name="student_name" /></p>
+<input type="hidden" id="dup" value="1" />
 <p>Student Tel:<input id="t2" type="text" name="student_tel" /></p>
 <p><input type="submit" value="ADD!" />
 </form>

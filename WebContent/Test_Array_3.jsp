@@ -12,6 +12,13 @@ function add() {
 	  var msg = document.getElementById("msg");
 	  li.appendChild(document.createTextNode(msg.value));
 	  ul.appendChild(li);
+	  
+	  var form1 = document.getElementById("form1");
+	  var input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "msg";
+      input.value = msg.value;
+      form1.appendChild(input);
 	}
 </script>
 </head>
@@ -22,5 +29,10 @@ function add() {
 	<li>aaa</li>
 	<li>bbb</li>
 </ul>
+<form id="form1" action="Test_Array_3_Receive.jsp" method="post">
+<input type="hidden" name="msg" value="aaa" />
+<input type="hidden" name="msg" value="bbb" />
+<input type="submit" value="下單" />
+</form>
 </body>
 </html>

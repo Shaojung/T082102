@@ -6,6 +6,33 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add a student.</title>
 <script language="JavaScript">
+var request;
+function getData()
+{
+	var t1 = document.getElementById("t1");
+	request = new XMLHttpRequest();
+	request.open("GET", "StudentCheck.jsp?name=" + t1.value, true);
+	// 這行是設定 request 要去哪取資料，尚未開始取
+	// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
+	// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
+	
+	request.onreadystatechange = updateData;
+	// 當記憶體中的瀏覽器狀態改變時，呼叫 updateData 這個 function
+	
+	request.send(null); // 發動 request 去取資料		
+}
+
+function updateData()
+{
+	if (request.readyState == 4)
+	{
+		// alert(request.responseText);
+		var dup = document.getElementById("dup")
+		dup.value = request.responseText.trim();	
+		// alert(dup.value);
+	}
+}
+
 function check_data()
 {
    var flag = true;
@@ -44,7 +71,7 @@ function check_data()
 <body>
 
 <form name="student" action="StudentAddCode.jsp" method="post" onSubmit="return check_data();">
-<p>Student Name:<input id="t1" type="text" name="student_name" /></p>
+<p>Student Name:<input id="t1" type="text" name="student_name" onblur="getData()" /></p>
 <input type="hidden" id="dup" value="1" />
 <p>Student Tel:<input id="t2" type="text" name="student_tel" /></p>
 <p><input type="submit" value="ADD!" />

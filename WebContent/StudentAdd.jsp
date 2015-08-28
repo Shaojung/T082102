@@ -16,6 +16,9 @@ function getData()
 	// 第三個參數打 true 可以想成，利用另外一個執行緒處理 Request
 	// 第三個參數打 false 可以想成，利用這一個執行緒處理 Request
 	
+	var img1 = document.getElementById("img1");
+	img1.src = "img/wait.gif";
+	
 	request.onreadystatechange = updateData;
 	// 當記憶體中的瀏覽器狀態改變時，呼叫 updateData 這個 function
 	
@@ -27,8 +30,19 @@ function updateData()
 	if (request.readyState == 4)
 	{
 		// alert(request.responseText);
-		var dup = document.getElementById("dup")
-		dup.value = request.responseText.trim();	
+		var dup = document.getElementById("dup");
+		dup.value = request.responseText.trim();
+		
+		if (dup.value == "1")
+			{
+			var img1 = document.getElementById("img1");
+			img1.src = "img/a1.png";
+			}
+		else
+			{
+			var img1 = document.getElementById("img1");
+			img1.src = "img/a0.png";
+			}
 		// alert(dup.value);
 	}
 }
@@ -71,7 +85,9 @@ function check_data()
 <body>
 
 <form name="student" action="StudentAddCode.jsp" method="post" onSubmit="return check_data();">
-<p>Student Name:<input id="t1" type="text" name="student_name" onblur="getData()" /></p>
+<p>Student Name:<input id="t1" type="text" name="student_name" onblur="getData()" />
+<img id="img1" width="50px" height="50px" />
+</p>
 <input type="hidden" id="dup" value="1" />
 <p>Student Tel:<input id="t2" type="text" name="student_tel" /></p>
 <p><input type="submit" value="ADD!" />
